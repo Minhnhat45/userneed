@@ -86,16 +86,19 @@ Nhiệm vụ của bạn là phân tích một bài báo/ngữ liệu và:
 """
 
 def query_ollama(prompt: str) -> str:
-    response = requests.post(OLLAMA_URL, json={
+    payload = {
         "model": MODEL_NAME,
         "prompt": prompt,
         "stream": False,
         "options": {
             "max_tokens": 2000,
-            "temperature": 0.2,
+            "temperature": 0.1,
             "top_p": 0.95
         }
-    })
+    }
+    print(f"Temperature used: {payload['options']['temperature']}")
+    response = requests.post(OLLAMA_URL, json=payload)
+    
     response.raise_for_status()
     return response.json()["response"]
 
@@ -112,23 +115,21 @@ def parse_json_output(raw_output: str):
         print("Raw output was:")
         print(raw_output)
         return None
-from utils import strip_html_tags_regex
+from utils import strip_html_tags_regex, build_input_data
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("⚠️  Usage: python qwen3_infer.py <path_to_article.txt>")
-        sys.exit(1)
-
+    article_id = sys.argv[1]
+    context = build_input_data(int(article_id))
     
-    with open(f"data/{sys.argv[1]}", "r", encoding="utf-8") as f:
-        metadata = json.load(f)
-        title = metadata["data"]["title"]
-        content = strip_html_tags_regex(metadata["data"]["content"])
-        article_text = title + "\n\n" + content
+    # with open(sys.argv[1], "r", encoding="utf-8") as f:
+    #     metadata = json.load(f)
+    #     title = metadata["data"]["title"]
+    #     content = strip_html_tags_regex(metadata["data"]["content"])
+    #     article_text = title + "\n\n" + content
 
-    prompt = build_prompt(article_text)
+    prompt = build_prompt(context)
     # print(f"📝 Prompt: \n{prompt}")
     raw_output = query_ollama(prompt)
     result = parse_json_output(raw_output)
 
-    print("\n✅ LLM Prediction:")
+    # print("\n✅ LLM Prediction:")
     print(json.dumps(result, indent=2, ensure_ascii=False))
