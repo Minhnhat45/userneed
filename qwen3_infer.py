@@ -1,9 +1,17 @@
 import requests
 import json
 import sys
-
-OLLAMA_URL = "http://localhost:11434/api/generate"
+import logging
+import logging.config
+import yaml
+OLLAMA_URL = "https://4d80090eef09.ngrok-free.app/api/generate"
 MODEL_NAME = "qwen3:14b-q4_K_M"
+
+with open(f"./logger/config.yaml", "r") as stream:
+    log_config = yaml.safe_load(stream)
+    # print("config=", json.dumps(config, indent=2, ensure_ascii=False))
+    logging.config.dictConfig(log_config)
+
 
 def build_prompt(article_text: str) -> str:
     return f"""Bạn là một trợ lý biên tập thông minh.  
@@ -91,6 +99,7 @@ def query_ollama(prompt: str) -> str:
         "prompt": prompt,
         "stream": False,
         "options": {
+            "seed": 4545,
             "max_tokens": 2000,
             "temperature": 0.1,
             "top_p": 0.95
@@ -125,11 +134,15 @@ if __name__ == "__main__":
     #     title = metadata["data"]["title"]
     #     content = strip_html_tags_regex(metadata["data"]["content"])
     #     article_text = title + "\n\n" + content
-
+    print(f"Context used: {context}")
     prompt = build_prompt(context)
     # print(f"📝 Prompt: \n{prompt}")
     raw_output = query_ollama(prompt)
-    result = parse_json_output(raw_output)
+    try:
+        result = parse_json_output(raw_output)
+        logging.info(f"Context: {repr(context)} ==> RESPONSE: {result}")
+    except:
+        logging.error(f"Context: {repr(context)}", exc_info=True)
 
     # print("\n✅ LLM Prediction:")
     print(json.dumps(result, indent=2, ensure_ascii=False))
