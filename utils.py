@@ -53,5 +53,5 @@ def build_input_data(article_id: int):
     title = data["data"]["title"]
     lead = strip_html_tags_regex(data["data"]["lead"])
     content = strip_html_tags_regex(data["data"]["content"])
-    # content_stripped = " ".join(content.split()[:300])
-    return title + "\n\n" + lead + "\n\n" + content[:300]
+    content_stripped = ". ".join(content.split(". ")[:8])
+    return title + "\n\n" + lead + "\n\n" + content_stripped
