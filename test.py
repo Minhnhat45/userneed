@@ -1,7 +1,5 @@
 import json
 
-with open("./data/test_list.json", "r", encoding="utf-8") as f:
-    test_list = json.load(f)
-
-for key in test_list["articles_id"].keys():
-    print(test_list["articles_id"][key])
+test_path = "./data/test_list_27_11_2025.json"
+suffix = "_".join(test_path.split('_')[-3:])
+print(f"./data/qwen3_infer_{suffix}")

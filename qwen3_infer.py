@@ -4,6 +4,7 @@ import sys
 import logging
 import logging.config
 import yaml
+from tqdm import tqdm
 OLLAMA_URL = "https://4d80090eef09.ngrok-free.app/api/generate"
 MODEL_NAME = "qwen3:14b-q4_K_M"
 
@@ -103,7 +104,7 @@ def query_ollama(prompt: str) -> str:
             "top_p": 0.95
         }
     }
-    print(f"Temperature used: {payload['options']['temperature']}")
+    # print(f"Temperature used: {payload['options']['temperature']}")
     response = requests.post(OLLAMA_URL, json=payload)
     
     response.raise_for_status()
@@ -123,15 +124,9 @@ def parse_json_output(raw_output: str):
         print(raw_output)
         return None
 from utils import strip_html_tags_regex, build_input_data
-if __name__ == "__main__":
-    article_id = sys.argv[1]
+
+def single_query(article_id: int):
     context = build_input_data(int(article_id))
-    
-    # with open(sys.argv[1], "r", encoding="utf-8") as f:
-    #     metadata = json.load(f)
-    #     title = metadata["data"]["title"]
-    #     content = strip_html_tags_regex(metadata["data"]["content"])
-    #     article_text = title + "\n\n" + content
     print(f"Context used: {context}")
     prompt = build_prompt(context)
     # print(f"📝 Prompt: \n{prompt}")
@@ -142,5 +137,36 @@ if __name__ == "__main__":
     except:
         logging.error(f"Context: {repr(context)}", exc_info=True)
 
-    # print("\n✅ LLM Prediction:")
     print(json.dumps(result, indent=2, ensure_ascii=False))
+    
+def infer_test_file(test_path: str):
+    output_dict = {}
+    with open(test_path, "r") as f:
+        articles = json.load(f)
+        for key in articles["articles_id"].keys():
+            print(key)
+            output_dict.setdefault(key, [])
+            for id in tqdm(articles["articles_id"][key]):
+                context = build_input_data(int(id))
+                prompt = build_prompt(context)
+                # print(f"📝 Prompt: \n{prompt}")
+                raw_output = query_ollama(prompt)
+                try:
+                    result = parse_json_output(raw_output)
+                    logging.info(f"Context: {repr(context)} ==> RESPONSE: {result}")
+                except:
+                    logging.error(f"Context: {repr(context)}", exc_info=True)
+                output_dict[key].append({
+                    "article_id": id,
+                    "response": result
+                })
+                print(json.dumps(result, indent=2, ensure_ascii=False))
+    suffix = "_".join(test_path.split('_')[-3:])
+    with open(f"./data/qwen3_infer_{suffix}", "w", encoding="utf-8") as out_f:
+        json.dump(output_dict, out_f, ensure_ascii=False, indent=4)
+if __name__ == "__main__":
+    # article_id = sys.argv[1]
+    # single_query(article_id)
+    
+    test_path = "./data/test_list_27_11_2025.json"
+    infer_test_file(test_path)
