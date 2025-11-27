@@ -1,5 +1,7 @@
-from utils import get_article_data
-import pdb
-data = get_article_data(4959792)
-print(data.keys())
-pdb.set_trace()
+import json
+
+with open("./data/test_list.json", "r", encoding="utf-8") as f:
+    test_list = json.load(f)
+
+for key in test_list["articles_id"].keys():
+    print(test_list["articles_id"][key])
