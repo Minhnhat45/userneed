@@ -123,7 +123,7 @@ def parse_json_output(raw_output: str):
         print("Raw output was:")
         print(raw_output)
         return None
-from utils import strip_html_tags_regex, build_input_data
+from utils import get_article_data, build_input_data
 
 def single_query(article_id: int):
     context = build_input_data(int(article_id))
@@ -147,7 +147,11 @@ def infer_test_file(test_path: str):
             print(key)
             output_dict.setdefault(key, [])
             for id in tqdm(articles["articles_id"][key]):
-                context = build_input_data(int(id))
+                
+                api_data = get_article_data(int(id))
+                context = build_input_data(api_data)
+
+                url = api_data["data"]["share_url"] if api_data else None
                 prompt = build_prompt(context)
                 # print(f"📝 Prompt: \n{prompt}")
                 raw_output = query_ollama(prompt)
@@ -158,7 +162,9 @@ def infer_test_file(test_path: str):
                     logging.error(f"Context: {repr(context)}", exc_info=True)
                 output_dict[key].append({
                     "article_id": id,
-                    "response": result
+                    "response": result,
+                    "data": context,
+                    "url": url
                 })
                 print(json.dumps(result, indent=2, ensure_ascii=False))
     suffix = "_".join(test_path.split('_')[-3:])

@@ -46,8 +46,8 @@ def get_article_data(article_id: int):
         print(f"Error: HTTP {response.status_code}")
         return None
     
-def build_input_data(article_id: int):
-    data = get_article_data(article_id)
+def build_input_data(data: dict):
+    # data = get_article_data(article_id)
     if data is None:
         return None
     title = data["data"]["title"]
