@@ -1,0 +1,1106 @@
+{
+    "kinhdoanh/doanh-nghiep": [
+        {
+            "article_id": 4986601,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4964616,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986759,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 5,
+                "I3": 5,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4986565,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985598,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986204,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 3,
+                "I3": 7,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4986509,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986384,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986021,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 5,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986409,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 5,
+                "I4": 7
+            }
+        }
+    ],
+    "kinhdoanh/doanh-nghiep/doanh-nghiep-viet": [
+        {
+            "article_id": 4963843,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986814,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986796,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986517,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986600,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986533,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986427,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4985901,
+            "response": {
+                "user_need": "Update me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4982714,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4963999,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        }
+    ],
+    "kinhdoanh/doanh-nghiep/logistic-40": [
+        {
+            "article_id": 4972120,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4985351,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4965261,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 5,
+                "I3": 7,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4971557,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4965709,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4969377,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4964113,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4965676,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4965755,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4965286,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        }
+    ],
+    "giaitri/thoi-trang": [
+        {
+            "article_id": 4985636,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986696,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986499,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4965983,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986555,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985597,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4985455,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4982244,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4972405,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4974374,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        }
+    ],
+    "suckhoe/song-khoe/khoe-dep": [
+        {
+            "article_id": 4986723,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4985665,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4985764,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985908,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4969342,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985460,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4974896,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4965953,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4969248,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4964811,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 3
+            }
+        }
+    ],
+    "suckhoe/vaccine/tu-van": [
+        {
+            "article_id": 4986527,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 3,
+                "I3": 5,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986050,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4985701,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4985367,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4984011,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4976660,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4975096,
+            "response": {
+                "user_need": "Help me",
+                "I1": 3,
+                "I3": 5,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4972238,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 5,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4969641,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 5,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4969234,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 5,
+                "I4": 5
+            }
+        }
+    ],
+    "dulich/diem-den": [
+        {
+            "article_id": 4986309,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 5,
+                "I3": 5,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986428,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986367,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4937382,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4963129,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985875,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4959843,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986040,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4985217,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985477,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 5,
+                "I4": 7
+            }
+        }
+    ],
+    "vnexpress/tam-su": [
+        {
+            "article_id": 4986812,
+            "response": {
+                "user_need": "Inspire me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986628,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 7,
+                "I3": 5,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4986465,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 9,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986792,
+            "response": {
+                "user_need": "Help me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986728,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 9,
+                "I3": 5,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986445,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 9,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986415,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 9,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986139,
+            "response": {
+                "user_need": "Inspire me",
+                "I1": 9,
+                "I3": 5,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4985737,
+            "response": {
+                "user_need": "Help me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986335,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 9,
+                "I3": 3,
+                "I4": 3
+            }
+        }
+    ],
+    "vnexpress/tam-su/hen-ho": [
+        {
+            "article_id": 4986486,
+            "response": {
+                "user_need": "Connect me",
+                "I1": 9,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986487,
+            "response": {
+                "user_need": "Inspire me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986489,
+            "response": {
+                "user_need": "Connect me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986492,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 5,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986494,
+            "response": {
+                "user_need": "Inspire me",
+                "I1": 9,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985631,
+            "response": {
+                "user_need": "Inspire me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985634,
+            "response": {
+                "user_need": "Connect me",
+                "I1": 5,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985635,
+            "response": {
+                "user_need": "Connect me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985641,
+            "response": {
+                "user_need": "Connect me",
+                "I1": 9,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985640,
+            "response": {
+                "user_need": "Connect me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        }
+    ],
+    "vnexpress/y-kien/thoi-su": [
+        {
+            "article_id": 4986731,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 7,
+                "I3": 5,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986639,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 7,
+                "I3": 7,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4986300,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 5,
+                "I3": 7,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986238,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 7,
+                "I3": 7,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4986454,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 5,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4985771,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 7,
+                "I3": 7,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4985447,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 7,
+                "I3": 7,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986043,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 5,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4985984,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 5,
+                "I3": 7,
+                "I4": 7
+            }
+        },
+        {
+            "article_id": 4985509,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 5,
+                "I3": 7,
+                "I4": 5
+            }
+        }
+    ],
+    "vnexpress/thu-gian": [
+        {
+            "article_id": 4986752,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985991,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985425,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985978,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4969361,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986534,
+            "response": {
+                "user_need": "Inspire me",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4986039,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985551,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985812,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985977,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        }
+    ],
+    "vnexpress/thu-gian/crossword": [
+        {
+            "article_id": 4985425,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985812,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985424,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4964733,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4971125,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4971124,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4965720,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4964732,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4965719,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 5,
+                "I3": 7,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4964731,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        }
+    ]
+}
