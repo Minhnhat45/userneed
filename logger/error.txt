@@ -1,0 +1,9 @@
+2025-12-04 17:05:16,182 - app - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/Users/minhnhat/PycharmProjects/userneed/app.py", line 91, in infer
+    parsed, raw_output = run_inference(article_text)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minhnhat/PycharmProjects/userneed/app.py", line 50, in run_inference
+    raw_output = query_model(prompt, local_infer)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: query_model() takes 1 positional argument but 2 were given

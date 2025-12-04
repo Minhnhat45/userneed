@@ -47,7 +47,7 @@ def run_inference(article_text: str) -> Tuple[dict, str]:
         raise ValueError("Article text is empty.")
 
     prompt = build_prompt(article_text)
-    raw_output = query_model(prompt, local_infer)
+    raw_output = query_model(prompt)
     parsed = parse_json_output(raw_output)
 
     if parsed is None:
