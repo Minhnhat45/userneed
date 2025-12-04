@@ -5,9 +5,14 @@ import logging
 import logging.config
 import yaml
 from tqdm import tqdm
-OLLAMA_URL = "https://4d80090eef09.ngrok-free.app/api/generate"
+from g4f import Client
+OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen3:14b-q4_K_M"
 
+client = Client()
+
+global local_infer
+local_infer = True
 with open(f"./logger/config.yaml", "r") as stream:
     log_config = yaml.safe_load(stream)
     # print("config=", json.dumps(config, indent=2, ensure_ascii=False))
@@ -110,6 +115,26 @@ def query_ollama(prompt: str) -> str:
     response.raise_for_status()
     return response.json()["response"]
 
+def query_model(prompt: str) -> str:
+    if local_infer:
+        return query_ollama(prompt)
+    else:
+        return query_g4f(prompt)
+    
+
+def query_g4f(prompt: str) -> str:
+    response = client.chat.completions.create(
+        model="Qwen/Qwen3-14B",
+        messages=[{"role": "user", "content": prompt}],
+        web_search=False,
+        api_key="PQEWyuBNCu0IkDoiPb2VsQyp3bx0euCy",
+        provider="DeepInfra",
+        temperature=0.1,
+        # stream=True
+    )
+    
+    return response.choices[0].message.content
+
 def parse_json_output(raw_output: str):
     try:
         # Find the first JSON-like block
@@ -126,11 +151,12 @@ def parse_json_output(raw_output: str):
 from utils import get_article_data, build_input_data
 
 def single_query(article_id: int):
-    context = build_input_data(int(article_id))
+    api_data = get_article_data(int(article_id))
+    context = build_input_data(api_data)
     print(f"Context used: {context}")
     prompt = build_prompt(context)
     # print(f"📝 Prompt: \n{prompt}")
-    raw_output = query_ollama(prompt)
+    raw_output = query_model(prompt)
     try:
         result = parse_json_output(raw_output)
         logging.info(f"Context: {repr(context)} ==> RESPONSE: {result}")
@@ -154,7 +180,7 @@ def infer_test_file(test_path: str):
                 url = api_data["data"]["share_url"] if api_data else None
                 prompt = build_prompt(context)
                 # print(f"📝 Prompt: \n{prompt}")
-                raw_output = query_ollama(prompt)
+                raw_output = query_model(prompt)
                 try:
                     result = parse_json_output(raw_output)
                     logging.info(f"Context: {repr(context)} ==> RESPONSE: {result}")
@@ -171,8 +197,8 @@ def infer_test_file(test_path: str):
     with open(f"./data/qwen3_infer_{suffix}", "w", encoding="utf-8") as out_f:
         json.dump(output_dict, out_f, ensure_ascii=False, indent=4)
 if __name__ == "__main__":
-    # article_id = sys.argv[1]
-    # single_query(article_id)
+    article_id = 4986601
+    single_query(article_id=article_id)
     
-    test_path = "./data/test_list_27_11_2025.json"
-    infer_test_file(test_path)
+    # test_path = "./data/test_list_27_11_2025.json"
+    # infer_test_file(test_path)
