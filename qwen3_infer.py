@@ -12,7 +12,7 @@ MODEL_NAME = "qwen3:14b-q4_K_M"
 client = Client()
 
 global local_infer
-local_infer = True
+local_infer = False
 with open(f"./logger/config.yaml", "r") as stream:
     log_config = yaml.safe_load(stream)
     # print("config=", json.dumps(config, indent=2, ensure_ascii=False))
