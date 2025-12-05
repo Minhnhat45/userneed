@@ -10,10 +10,13 @@ from pydantic import BaseModel
 
 from qwen3_infer import build_prompt, query_model, parse_json_output, local_infer
 from utils import build_input_data, get_article_data
+import urllib3
+from urllib3.exceptions import InsecureRequestWarning
 
 LOG_CONFIG_PATH = Path(__file__).parent / "logger" / "config.yaml"
 
 
+urllib3.disable_warnings(InsecureRequestWarning)
 def setup_logging() -> None:
     if logging.getLogger().handlers:
         return

@@ -6,13 +6,11 @@ import logging.config
 import yaml
 from tqdm import tqdm
 from g4f import Client
-OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "qwen3:14b-q4_K_M"
-
+from openai import OpenAI
 client = Client()
 
 global local_infer
-local_infer = False
+local_infer = True
 with open(f"./logger/config.yaml", "r") as stream:
     log_config = yaml.safe_load(stream)
     # print("config=", json.dumps(config, indent=2, ensure_ascii=False))
@@ -97,32 +95,63 @@ Nhiệm vụ của bạn là phân tích một bài báo/ngữ liệu và:
 {article_text}
 """
 
-def query_ollama(prompt: str) -> str:
-    payload = {
-        "model": MODEL_NAME,
-        "prompt": prompt,
-        "stream": False,
-        "options": {
-            "seed": 4545,
-            "max_tokens": 2000,
-            "temperature": 0.1,
-            "top_p": 0.95
+def query_local(prompt: str) -> str:
+    # infer using OLLAMA local server
+    OLLAMA = False
+    if OLLAMA:
+        OLLAMA_URL = "http://localhost:11434/api/generate"
+        MODEL_NAME = "qwen3:14b-q4_K_M"
+        payload = {
+            "model": MODEL_NAME,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "seed": 4545,
+                "max_tokens": 2000,
+                "temperature": 0.1,
+                "top_p": 0.95
+            }
         }
-    }
-    # print(f"Temperature used: {payload['options']['temperature']}")
-    response = requests.post(OLLAMA_URL, json=payload)
-    
-    response.raise_for_status()
-    return response.json()["response"]
+        # print(f"Temperature used: {payload['options']['temperature']}")
+        response = requests.post(OLLAMA_URL, json=payload)
+        
+        response.raise_for_status()
+        return response.json()["response"]
+    else:
+        # infer using vLLM local server
+        # print("Using OpenAI client for local inference...")
+        model_name = "Qwen/Qwen3-14B-AWQ"
+        base_url = "http://157.10.188.151:8808/v1"
+        api_key = "123456"
+        client = OpenAI(
+            base_url=base_url,
+            api_key=api_key,
+        )
+        system_prompt = """
+        Bạn là trợ lý biên tập thông minh, nhiệm vụ của bạn là phân loại bài viết vào đúng 1 user need trong 8 nhóm Smartocto 2.0 và chấm ba chỉ số I1, I3, I4. Các giá trị I1/I3/I4 bắt buộc phải thuộc tập {1, 3, 5, 7, 9} và phải chọn mức gần nhất theo mô tả chuẩn. Luôn trả lời bằng **Định dạng JSON**, không thêm bất kỳ chữ nào ngoài JSON, với các trường: user_need, I1, I3, I4. Trước khi xuất kết quả, phải tự kiểm tra tất cả giá trị đều hợp lệ và đúng danh sách cho phép.
+        """
+        response = client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt},
+            ],
+            seed=4545,
+            temperature=0.1,
+            max_tokens=2048,
+            top_p=0.95
+        )
+        return response.choices[0].message.content
 
 def query_model(prompt: str) -> str:
     if local_infer:
-        return query_ollama(prompt)
+        return query_local(prompt)
     else:
         return query_g4f(prompt)
     
 
 def query_g4f(prompt: str) -> str:
+    # print("Using G4F client for inference...")
     response = client.chat.completions.create(
         model="Qwen/Qwen3-14B",
         messages=[{"role": "user", "content": prompt}],
