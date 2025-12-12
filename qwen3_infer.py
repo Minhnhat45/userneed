@@ -6,6 +6,7 @@ import logging.config
 import yaml
 from tqdm import tqdm
 from g4f import Client
+import ast
 from openai import OpenAI
 client = Client()
 
@@ -95,6 +96,11 @@ Nhiệm vụ của bạn là phân tích một bài báo/ngữ liệu và:
 {article_text}
 """
 
+def norm_output_open_ai(answer):
+    norm_answer = ast.literal_eval(answer)
+
+    return json.loads(norm_answer) 
+
 def query_local(prompt: str) -> str:
     # infer using OLLAMA local server
     OLLAMA = False
@@ -141,7 +147,10 @@ def query_local(prompt: str) -> str:
             max_tokens=2048,
             top_p=0.95
         )
-        return response.choices[0].message.content
+        answer = response.choices[0].message.content
+        import pdb
+        # pdb.set_trace()
+        return answer
 
 def query_model(prompt: str) -> str:
     if local_infer:
@@ -226,8 +235,8 @@ def infer_test_file(test_path: str):
     with open(f"./data/qwen3_infer_{suffix}", "w", encoding="utf-8") as out_f:
         json.dump(output_dict, out_f, ensure_ascii=False, indent=4)
 if __name__ == "__main__":
-    article_id = 4986601
-    single_query(article_id=article_id)
+    # article_id = 4986601
+    # single_query(article_id=article_id)
     
-    # test_path = "./data/test_list_27_11_2025.json"
-    # infer_test_file(test_path)
+    test_path = "./data/test_list_12_12_2025_qc_selected.json"
+    infer_test_file(test_path)

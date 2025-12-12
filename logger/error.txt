@@ -7,3 +7,78 @@ Traceback (most recent call last):
     raw_output = query_model(prompt, local_infer)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: query_model() takes 1 positional argument but 2 were given
+2025-12-05 11:13:41,421 - app - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/root/userneed/app.py", line 94, in infer
+    parsed, raw_output = run_inference(article_text)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/app.py", line 53, in run_inference
+    raw_output = query_model(prompt)
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 155, in query_model
+    return query_local(prompt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 151, in query_local
+    return norm_output_open_ai(answer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 100, in norm_output_open_ai
+    norm_answer = ast.literal_eval(answer).strip()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'strip'
+2025-12-05 11:14:33,284 - app - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/root/userneed/app.py", line 94, in infer
+    parsed, raw_output = run_inference(article_text)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/app.py", line 53, in run_inference
+    raw_output = query_model(prompt)
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 155, in query_model
+    return query_local(prompt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 151, in query_local
+    return norm_output_open_ai(answer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 102, in norm_output_open_ai
+    return json.loads(norm_answer)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/ft_llm/lib/python3.12/json/__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not dict
+2025-12-05 11:17:28,598 - app - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/root/userneed/app.py", line 94, in infer
+    parsed, raw_output = run_inference(article_text)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/app.py", line 57, in run_inference
+    raise ValueError("Model response could not be parsed as JSON.")
+ValueError: Model response could not be parsed as JSON.
+2025-12-05 11:20:15,598 - app - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/root/userneed/app.py", line 94, in infer
+    parsed, raw_output = run_inference(article_text)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/app.py", line 53, in run_inference
+    raw_output = query_model(prompt)
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 157, in query_model
+    return query_local(prompt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/qwen3_infer.py", line 153, in query_local
+    return ast.literal_eval(answer)
+           ^^^
+  File "/root/miniconda3/envs/ft_llm/lib/python3.12/bdb.py", line 100, in trace_dispatch
+    return self.dispatch_line(frame)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/ft_llm/lib/python3.12/bdb.py", line 125, in dispatch_line
+    if self.quitting: raise BdbQuit
+                      ^^^^^^^^^^^^^
+bdb.BdbQuit
+2025-12-05 11:22:04,905 - app - ERROR - Inference failed
+Traceback (most recent call last):
+  File "/root/userneed/app.py", line 94, in infer
+    parsed, raw_output = run_inference(article_text)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/userneed/app.py", line 57, in run_inference
+    raise ValueError("Model response could not be parsed as JSON.")
+ValueError: Model response could not be parsed as JSON.
