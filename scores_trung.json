@@ -1,0 +1,302 @@
+{
+    "kinhdoanh/doanh-nghiep": [
+        {
+            "article_id": 4990768,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 5,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4990684,
+            "response": {
+                "user_need": "Update me",
+                "I1": 1,
+                "I3": 3,
+                "I4": 1
+            }
+        }
+    ],
+    "kinhdoanh/doanh-nghiep/doanh-nghiep-viet": [
+        {
+            "article_id": 4990383,
+            "response": {
+                "user_need": "Help me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4990356,
+            "response": {
+                "user_need": "Inspire me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        }
+    ],
+    "kinhdoanh/doanh-nghiep/logistic-40": [
+        {
+            "article_id": 4988220,
+            "response": {
+                "user_need": "Help me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4988935,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 1,
+                "I3": 3,
+                "I4": 3
+            }
+        }
+    ],
+    "giaitri/thoi-trang": [
+        {
+            "article_id": 4990182,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4990777,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 3,
+                "I3": 1,
+                "I4": 1
+            }
+        }
+    ],
+    "suckhoe/song-khoe/khoe-dep": [
+        {
+            "article_id": 4965953,
+            "response": {
+                "user_need": "Help me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4964811,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        }
+    ],
+    "suckhoe/vaccine/tu-van": [
+        {
+            "article_id": 4952303,
+            "response": {
+                "user_need": "Help me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4953266,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 3,
+                "I4": 3
+            }
+        }
+    ],
+    "vnexpress/tam-su": [
+        {
+            "article_id": 4987976,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 7,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4987988,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 7,
+                "I3": 5,
+                "I4": 1
+            }
+        }
+    ],
+    "vnexpress/tam-su/hen-ho": [
+        {
+            "article_id": 4987918,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4987912,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        }
+    ],
+    "vnexpress/y-kien/thoi-su": [
+        {
+            "article_id": 4987741,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 5,
+                "I3": 5,
+                "I4": 3
+            }
+        },
+        {
+            "article_id": 4987420,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 7,
+                "I4": 5
+            }
+        }
+    ],
+    "vnexpress/thu-gian": [
+        {
+            "article_id": 4986924,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4972180,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        }
+    ],
+    "vnexpress/thu-gian/crossword": [
+        {
+            "article_id": 4985424,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4985812,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 1
+            }
+        }
+    ],
+    "thegioi": [
+        {
+            "article_id": 4988062,
+            "response": {
+                "user_need": "Update me",
+                "I1": 9,
+                "I3": 7,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4987895,
+            "response": {
+                "user_need": "Update me",
+                "I1": 3,
+                "I3": 5,
+                "I4": 3
+            }
+        }
+    ],
+    "khoahoc_congnghe": [
+        {
+            "article_id": 4962761,
+            "response": {
+                "user_need": "Educate me",
+                "I1": 3,
+                "I3": 3,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4991440,
+            "response": {
+                "user_need": "Give me perspective",
+                "I1": 1,
+                "I3": 5,
+                "I4": 5
+            }
+        }
+    ],
+    "đoisong": [
+        {
+            "article_id": 4987885,
+            "response": {
+                "user_need": "Update me",
+                "I1": 5,
+                "I3": 7,
+                "I4": 5
+            }
+        },
+        {
+            "article_id": 4986595,
+            "response": {
+                "user_need": "Keep me engaged",
+                "I1": 5,
+                "I3": 3,
+                "I4": 1
+            }
+        }
+    ],
+    "dulich/diem-den": [
+        {
+            "article_id": 4987684,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 1
+            }
+        },
+        {
+            "article_id": 4937382,
+            "response": {
+                "user_need": "Divert me",
+                "I1": 1,
+                "I3": 1,
+                "I4": 1
+            }
+        }
+    ]
+}
