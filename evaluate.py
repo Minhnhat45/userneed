@@ -1,7 +1,8 @@
-"""Evaluate model outputs against ground truth using Smartocto rules.
+"""Evaluate model outputs against dual human scores using Smartocto rules.
 
 This script compares the model inference dump at ``data/qwen3_infer_2025_qc_selected.json``
-with the corresponding ground truth file ``data/qwen3_infer_2025_qc_selected_ground_truth.json``.
+against two sets of human annotations: ``scores_trung.json`` and ``scores_thao.json``.
+A prediction is treated as correct when it matches either annotator for a field.
 It implements the scoring rubric provided in the task description:
 
 - User need: exact match = 2, same group = 1, different group = 0.
@@ -17,7 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Dict, Iterable, Mapping, MutableMapping
+from typing import Any, Dict, Iterable, List, Mapping, MutableMapping, Tuple, Union
 
 
 USER_NEED_GROUPS: Dict[str, str] = {
@@ -33,6 +34,7 @@ USER_NEED_GROUPS: Dict[str, str] = {
 
 IMPACT_LEVELS = (1, 3, 5, 7, 9)
 IMPACT_INDEX = {value: idx for idx, value in enumerate(IMPACT_LEVELS)}
+DEFAULT_GROUND_TRUTHS = (Path("scores_trung.json"), Path("scores_thao.json"))
 
 
 def load_json(path: Path) -> MutableMapping[str, Any]:
@@ -97,19 +99,52 @@ def score_impact_metric(model_value: int, gt_value: int) -> int:
     return 0
 
 
-def evaluate_response(model_response: Mapping[str, Any], gt_response: Mapping[str, Any]) -> Dict[str, float]:
-    model_need = model_response["user_need"]
-    gt_need = gt_response["user_need"]
-    score_need = score_user_need(model_need, gt_need)
+def evaluate_response(model_response: Mapping[str, Any], gt_responses: Iterable[Mapping[str, Any]]) -> Tuple[Mapping[str, Any], Dict[str, float]]:
+    gt_list: List[Mapping[str, Any]] = list(gt_responses)
+    if not gt_list:
+        raise ValueError("No ground truth responses provided for evaluation.")
 
-    score_i1 = score_impact_metric(int(model_response["I1"]), int(gt_response["I1"]))
-    score_i3 = score_impact_metric(int(model_response["I3"]), int(gt_response["I3"]))
-    score_i4 = score_impact_metric(int(model_response["I4"]), int(gt_response["I4"]))
+    model_need = model_response["user_need"]
+
+    best_need_score = -1
+    best_need_value = None
+    for gt in gt_list:
+        candidate_need = gt["user_need"]
+        score = score_user_need(model_need, candidate_need)
+        if score > best_need_score:
+            best_need_score = score
+            best_need_value = candidate_need
+
+    def best_impact(metric: str) -> Tuple[int, int]:
+        best_score = -1
+        best_value = None
+        model_value = int(model_response[metric])
+        for gt in gt_list:
+            candidate_value = int(gt[metric])
+            score = score_impact_metric(model_value, candidate_value)
+            if score > best_score:
+                best_score = score
+                best_value = candidate_value
+        if best_score < 0 or best_value is None:
+            raise ValueError(f"No ground truth values found for metric {metric}")
+        return best_score, best_value
+
+    score_i1, best_i1_value = best_impact("I1")
+    score_i3, best_i3_value = best_impact("I3")
+    score_i4, best_i4_value = best_impact("I4")
 
     score_emotion = (score_i1 + score_i3 + score_i4) / 6
+    score_need = best_need_score
     final_score = score_need + score_emotion
 
-    return {
+    resolved_ground_truth = {
+        "user_need": best_need_value,
+        "I1": best_i1_value,
+        "I3": best_i3_value,
+        "I4": best_i4_value,
+    }
+
+    scores = {
         "score_userneed": score_need,
         "score_I1": score_i1,
         "score_I3": score_i3,
@@ -118,14 +153,27 @@ def evaluate_response(model_response: Mapping[str, Any], gt_response: Mapping[st
         "final_score": final_score,
     }
 
+    return resolved_ground_truth, scores
 
-def evaluate_dataset(model_dataset: Mapping[str, Any], gt_dataset: Mapping[str, Any]) -> Dict[str, Any]:
+
+def evaluate_dataset(model_dataset: Mapping[str, Any], gt_datasets: Union[Iterable[Mapping[str, Any]], Mapping[str, Any]]) -> Dict[str, Any]:
+    if isinstance(gt_datasets, Mapping):
+        gt_sources = [gt_datasets]
+    else:
+        gt_sources = list(gt_datasets)
+    if not gt_sources:
+        raise ValueError("At least one ground truth dataset is required.")
+
     model_index = flatten_articles(model_dataset)
-    gt_index = flatten_articles(gt_dataset)
+    gt_indices = [flatten_articles(gt) for gt in gt_sources]
 
-    common_ids = sorted(set(model_index).intersection(gt_index))
-    missing_in_model = sorted(set(gt_index) - set(model_index))
-    missing_in_gt = sorted(set(model_index) - set(gt_index))
+    gt_union_ids = set()
+    for index in gt_indices:
+        gt_union_ids.update(index.keys())
+
+    common_ids = sorted(set(model_index).intersection(gt_union_ids))
+    missing_in_model = sorted(gt_union_ids - set(model_index))
+    missing_in_gt = sorted(set(model_index) - gt_union_ids)
 
     results = []
     totals = {
@@ -139,14 +187,15 @@ def evaluate_dataset(model_dataset: Mapping[str, Any], gt_dataset: Mapping[str, 
 
     for article_id in common_ids:
         model_resp = model_index[article_id]["response"]
-        gt_resp = gt_index[article_id]["response"]
-        scores = evaluate_response(model_resp, gt_resp)
+        gt_candidates = [idx[article_id]["response"] for idx in gt_indices if article_id in idx]
+        resolved_gt, scores = evaluate_response(model_resp, gt_candidates)
 
         results.append({
             "article_id": article_id,
             "category": model_index[article_id]["category"],
             "model_response": model_resp,
-            "ground_truth": gt_resp,
+            "ground_truth": resolved_gt,
+            "ground_truth_candidates": gt_candidates,
             **scores,
         })
 
@@ -192,7 +241,7 @@ def print_summary(evaluation: Mapping[str, Any]) -> None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Evaluate model outputs against ground truth.")
+    parser = argparse.ArgumentParser(description="Evaluate model outputs against dual ground truth files.")
     parser.add_argument(
         "--predictions",
         type=Path,
@@ -200,11 +249,12 @@ def parse_args() -> argparse.Namespace:
         help="Path to the model prediction JSON file.",
     )
     parser.add_argument(
-        "--ground-truth",
-        dest="ground_truth",
+        "--ground-truths",
+        dest="ground_truths",
         type=Path,
-        default=Path("./data/qwen3_infer_2025_qc_selected_ground_truth.json"),
-        help="Path to the ground truth JSON file.",
+        nargs="+",
+        default=list(DEFAULT_GROUND_TRUTHS),
+        help="One or more ground truth JSON files to use (defaults to scores_trung.json and scores_thao.json).",
     )
     parser.add_argument(
         "--save",
@@ -218,9 +268,9 @@ def main() -> None:
     args = parse_args()
 
     model_dataset = load_json(args.predictions)
-    gt_dataset = load_json(args.ground_truth)
+    gt_datasets = [load_json(path) for path in args.ground_truths]
 
-    evaluation = evaluate_dataset(model_dataset, gt_dataset)
+    evaluation = evaluate_dataset(model_dataset, gt_datasets)
     print_summary(evaluation)
 
     if args.save:

@@ -54,4 +54,4 @@ def build_input_data(data: dict):
     lead = strip_html_tags_regex(data["data"]["lead"])
     content = strip_html_tags_regex(data["data"]["content"])
     content_stripped = ". ".join(content.split(". ")[:8])
-    return title + "\n\n" + lead + "\n\n" + content_stripped
+    return title + "\n\n" + lead + "\n\n" + content

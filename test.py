@@ -160,11 +160,11 @@ def main() -> None:
         for key in ("I1", "I3", "I4")
     }
 
-    plot_matrix("User need confusion (8x8)", user_need_labels, user_need_conf, args.out_dir / "user_need_confusion.png")
-    plot_matrix("Group confusion (4x4)", group_labels, group_conf, args.out_dir / "group_confusion.png")
-    for key, matrix in impact_conf.items():
-        plot_matrix(f"{key} impact confusion (5x5)", impact_labels, matrix, args.out_dir / f"{key}_confusion.png")
-    print(f"\nConfusion matrices saved to {args.out_dir}")
+    # plot_matrix("User need confusion (8x8)", user_need_labels, user_need_conf, args.out_dir / "user_need_confusion.png")
+    # plot_matrix("Group confusion (4x4)", group_labels, group_conf, args.out_dir / "group_confusion.png")
+    # for key, matrix in impact_conf.items():
+    #     plot_matrix(f"{key} impact confusion (5x5)", impact_labels, matrix, args.out_dir / f"{key}_confusion.png")
+    # print(f"\nConfusion matrices saved to {args.out_dir}")
 
 
 if __name__ == "__main__":
